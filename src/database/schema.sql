@@ -13,6 +13,7 @@ CREATE TABLE tarefas (
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     status VARCHAR(50) NOT NULL DEFAULT 'Pendente',
+    priority VARCHAR(50) NOT NULL,
     user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -71,9 +72,9 @@ INSERT INTO users (name, email) VALUES
     ('Felipe Santos', 'felipe.santos@gmail.com');
 
 -- Inserindo tarefas
-INSERT INTO tarefas (title, description, status, user_id) VALUES
-    ('Finalizar relatório', 'Concluir o relatório mensal de vendas', 'Em andamento', 1),
-    ('Reunião com cliente', 'Agendar e participar da reunião com o cliente X', 'Pendente', 2),
-    ('Atualizar sistema', 'Realizar a atualização do sistema para a versão mais recente', 'Concluído', 3),
-    ('Planejar campanha', 'Criar o planejamento da nova campanha publicitária', 'Pendente', 4),
-    ('Treinamento da equipe', 'Organizar o treinamento para novos colaboradores', 'Em andamento', 5);
+INSERT INTO tarefas (title, description, status, priority, user_id) VALUES
+    ('Finalizar relatório', 'Concluir o relatório mensal de vendas', 'Em andamento', 'Alta', 1),
+    ('Reunião com cliente', 'Agendar e participar da reunião com o cliente X', 'Pendente', 'Média', 2),
+    ('Atualizar sistema', 'Realizar a atualização do sistema para a versão mais recente', 'Concluído', 'Baixa', 3),
+    ('Planejar campanha', 'Criar o planejamento da nova campanha publicitária', 'Pendente', 'Alta', 4),
+    ('Treinamento da equipe', 'Organizar o treinamento para novos colaboradores', 'Em andamento', 'Média', 5);
