@@ -19,13 +19,13 @@ const deleteUser = async (id) => {
     return { message: "Usuário deletado com sucesso." };
 };
 const updateUser = async (id, data) => {
-    const { name, email, password } = data;
-    const result = await pool.query("UPDATE users SET name = $1, email = $2, password = $3 WHERE id = $4 RETURNING *", [name, email, password, id]);
+    const { name, email } = data;
+    const result = await pool.query("UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING *", [name, email, id]);
     return result.rows[0];
 };
 
-const createUser = async (name, email, password, photo) => {
-    const result = await pool.query("INSERT INTO users (name, email, password, photo) VALUES ($1, $2, $3, $4) RETURNING *", [name, email, password, photo]);
+const createUser = async (name, email) => {
+    const result = await pool.query("INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *", [name, email]);
     return result.rows[0];
 };
 

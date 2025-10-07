@@ -25,8 +25,8 @@ const getById = async (req, res) => {
 
 const createTask = async (req, res) => {
     try {
-        const { title, description, status, user_id } = req.body;
-        const newTask = await TaskModel.createTask(title, description, status, user_id);
+        const { title, description, status, priority, user_id } = req.body;
+        const newTask = await TaskModel.createTask(title, description, status, priority, user_id);
         res.status(201).json(newTask);
     } catch (error) {
         res.status(500).json({ error: 'Erro ao criar tarefa.' });
@@ -35,8 +35,8 @@ const createTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
     try {
-        const { title, description, status, } = req.body;
-        const task = await TaskModel.updateTask(req.params.id, title, description, status, );
+        const { title, description, status, priority } = req.body;
+        const task = await TaskModel.updateTask(req.params.id, title, description, status, priority);
         if (!task) {
             return res.status(404).json({ error: 'Tarefa não encontrada.' });
         }

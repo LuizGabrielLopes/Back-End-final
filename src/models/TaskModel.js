@@ -29,20 +29,20 @@ const getTaskById = async (id) => {
     return result.rows[0];
 };
 
-const createTask = async (title, description, status, user_id) => {
+const createTask = async (title, description, status, priority, user_id) => {
     const result = await pool.query(`
-        INSERT INTO tarefas (title, description, status, user_id)
-        VALUES ($1, $2, $3, $4) RETURNING *
-    `, [title, description, status, user_id]);
+        INSERT INTO tarefas (title, description, status, priority, user_id)
+        VALUES ($1, $2, $3, $4, $5) RETURNING *
+    `, [title, description, status, priority, user_id]);
     return result.rows[0];
 };
 
-const updateTask = async (id, title, description, status) => {
+const updateTask = async (id, title, description, status, priority) => {
     const result = await pool.query(`
         UPDATE tarefas
-        SET title = $1, description = $2, status = $3
-        WHERE id = $4 RETURNING *
-    `, [title, description, status, id]);
+        SET title = $1, description = $2, status = $3, priority = $4
+        WHERE id = $5 RETURNING *
+    `, [title, description, status, priority, id]);
     return result.rows[0];
 };
 

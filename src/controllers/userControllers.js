@@ -50,9 +50,8 @@ const updateUser = async (req, res) => {
 
 const createUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
-        const photo = req.file ? req.file.filename : null;
-        const user = await UserModel.createUser(name, email, password, photo);
+        const { name, email } = req.body;
+        const user = await UserModel.createUser(name, email);
         res.status(201).json(user);
     } catch (error) {
         res.status(500).json({ message: "Erro ao criar o usuário." });

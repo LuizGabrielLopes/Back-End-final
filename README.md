@@ -30,11 +30,6 @@ Uma API RESTful robusta para gerenciamento de usuários e tarefas, desenvolvida 
 - **CORS** - Middleware para controle de acesso
 - **dotenv** - Gerenciamento de variáveis de ambiente
 - **Nodemon** - Desenvolvimento com hot reload
-- **Swagger** - Documentação da API
-- **UUID** - Geração de identificadores únicos
-- **PDFKit** - Geração de documentos PDF
-- **Multer** - Upload de arquivos
-- **CSV** - Manipulação de arquivos CSV
 
 ## 📁 Estrutura do Projeto
 
@@ -67,13 +62,13 @@ Back-End-final/
 - npm ou yarn
 
 ### 1. Clone o repositório
-```bash
+Abra o terminal cmd
 git clone https://github.com/LuizGabrielLopes/Back-End-final.git
 cd Back-End-final
 ```
 
 ### 2. Instale as dependências
-```bash
+abra o terminal cmd
 npm install
 ```
 
@@ -87,22 +82,17 @@ Crie um arquivo `.env` na raiz do projeto:
 ```env
 PORT=3000
 DB_HOST=localhost
-DB_PORT=5432
+DB_PORT=sua porta
 DB_NAME=mytasks
 DB_USER=seu_usuario
-DB_PASS=sua_senha
+DB_PASSWORD=sua_senha
 ```
 
 ### 5. Execute o projeto
 
 #### Desenvolvimento (com hot reload)
-```bash
+Abra o terminal cmd
 npm run dev
-```
-
-#### Produção
-```bash
-npm start
 ```
 
 O servidor estará disponível em `http://localhost:3000`
